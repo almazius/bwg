@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  postgres:
+    restart: always
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "almaz"
+      POSTGRES_PASSWORD: "almaz"
+    volumes:
+      - ./migration/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+  bwg:
+    image: golang
+    build:
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"

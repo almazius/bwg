@@ -1,0 +1,11 @@
+#this demo config.yml
+Postgres:
+  user: "almaz"
+  password: "almaz"
+  host: "127.0.0.1"
+  port: "5432"
+  dbName: "postgres"
+
+Server:
+  port: ":8080"
+  timeout: 10
